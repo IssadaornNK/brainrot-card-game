@@ -961,7 +961,7 @@ Reply with ONLY a single number from your cards.`;
                 {lastBattle ? (
                   <div className="relative">
                     <img
-                      src={`/src/assets/${lastBattle.playerCard}.png`}
+                      src={`/assets/${lastBattle.playerCard}.png`}
                       alt=""
                       style={{
                         width: 80,
@@ -1052,7 +1052,7 @@ Reply with ONLY a single number from your cards.`;
                       </div>
                       <div className="card-back w-full h-full rounded overflow-hidden relative">
                         <img
-                          src={`/src/assets/${lastBattle.aiCard}.png`}
+                          src={`/assets/${lastBattle.aiCard}.png`}
                           alt=""
                           className="w-full h-full object-contain"
                           style={{
