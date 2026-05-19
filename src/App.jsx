@@ -1325,6 +1325,38 @@ Reply with ONLY a single number from your cards.`;
                       </div>
                     )}
                     {special && (
+                      <>
+                        {/* Name at top */}
+                        <div
+                          className="absolute top-1 left-1/2 -translate-x-1/2 text-center"
+                          style={{
+                            color: special.color,
+                            fontSize: 16,
+                            fontWeight: "900",
+                            textShadow: `0 0 16px ${special.color}`,
+                            whiteSpace: "nowrap",
+                          }}
+                        >
+                          {special.emoji} {special.name}
+                        </div>
+
+                        {/* Description at bottom */}
+                        <div
+                          className="absolute bottom-7 left-1/2 -translate-x-1/2 text-center px-1"
+                          style={{
+                            width: "90%",
+                            fontSize: "14px",
+                            lineHeight: "1.1",
+                            color: "#cc88ff",
+                            fontWeight: "bold",
+                            textShadow: "0 0 4px rgba(0,0,0,0.8)",
+                          }}
+                        >
+                          {special.desc}
+                        </div>
+                      </>
+                    )}
+                    {special && (
                       <div
                         className="absolute top-1 right-1 text-xs font-black px-1 py-0.5 rounded-full"
                         style={{
