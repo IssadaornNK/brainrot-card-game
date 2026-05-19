@@ -179,15 +179,19 @@ Reply with ONLY a single number from your cards.`;
       setAiDeck((prev) => prev.filter((c) => c !== aiCard));
 
       setPlayerHand((prev) => {
-        const newHand = prev.filter((c) => c !== playerCard);
+        let newHand = prev.filter((c) => c !== playerCard);
+
         const notInHand = playerDeck.filter(
           (c) => c !== playerCard && !newHand.includes(c)
         );
-        if (notInHand.length > 0) {
-          const shuffled = shuffle([...notInHand]);
-          newHand.push(shuffled[0]);
+
+        while (newHand.length < 4 && notInHand.length > 0) {
+          const randomIndex = Math.floor(Math.random() * notInHand.length);
+          newHand.push(notInHand[randomIndex]);
+          notInHand.splice(randomIndex, 1);
         }
-        return newHand;
+
+        return newHand.slice(0, 4);
       });
 
       updateAiMemory(playerCard);
@@ -285,25 +289,40 @@ Reply with ONLY a single number from your cards.`;
   };
 
   useEffect(() => {
-    if (gameOver || isThinking || !gameStarted) {
+    if (
+      gameOver ||
+      isThinking ||
+      !gameStarted ||
+      playerHand.length === 0
+    ) {
       clearInterval(timerRef.current);
       return;
     }
+
     setTimeLeft(15);
     clearInterval(timerRef.current);
+
     timerRef.current = setInterval(() => {
       setTimeLeft((prev) => {
         if (prev <= 1) {
           clearInterval(timerRef.current);
-          const card = playerHand[Math.floor(Math.random() * playerHand.length)];
-          if (card) playCard(card);
+
+          const randomCard =
+            playerHand[Math.floor(Math.random() * playerHand.length)];
+
+          if (randomCard) {
+            playCard(randomCard);
+          }
+
           return 15;
         }
+
         return prev - 1;
       });
     }, 1000);
+
     return () => clearInterval(timerRef.current);
-  }, [round, gameOver, isThinking, gameStarted]);
+  }, [round, gameOver, isThinking, gameStarted, playerHand]);
 
   useEffect(() => {
     if (gameStarted && playerHand.length === 0) {
