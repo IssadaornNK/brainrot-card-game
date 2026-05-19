@@ -667,7 +667,10 @@ Reply with ONLY a single number from your cards.`;
               </div>
               <button
                 onClick={() => {
-                  window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
+                  if (playerWins < aiWins) {
+                    window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
+                  }
+
                   resetGame();
                 }}
                 className="w-full py-3 rounded-2xl font-black text-lg tracking-widest transition-all hover:scale-105"
