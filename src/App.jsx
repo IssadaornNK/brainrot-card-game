@@ -57,6 +57,12 @@ export default function BrainrotCardDuel() {
 
   const gameOver = playerWins >= 3 || aiWins >= 3;
 
+  useEffect(() => {
+    if (playerWins < aiWins && gameOver) {
+      window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
+    }
+  }, [gameOver]);
+
   const resetGame = () => {
     setPlayerDeck(createDeck());
     setAiDeck(createDeck());
@@ -624,6 +630,40 @@ Reply with ONLY a single number from your cards.`;
               >
                 {playerWins >= 3 ? "YOU WIN!" : "YOU LOSE!"}
               </h2>
+              {/* Lose GIF */}
+              {playerWins < aiWins && (
+                <iframe
+                  src="https://tenor.com/embed/13033990507955628398"
+                  width="100%"
+                  height="260"
+                  frameBorder="0"
+                  allowFullScreen
+                  title="Patrick"
+                  style={{
+                    border: "none",
+                    marginBottom: "16px",
+                    borderRadius: "12px",
+                  }}
+                />
+              )}
+
+              {/* Win GIF */}
+              {playerWins >= 3 && (
+                <iframe
+                  src="https://tenor.com/embed/753221407762395964"
+                  width="100%"
+                  height="260"
+                  frameBorder="0"
+                  allowFullScreen
+                  title="Happy Cat"
+                  style={{
+                    border: "none",
+                    marginBottom: "16px",
+                    borderRadius: "12px",
+                  }}
+                />
+              )}
+
               <p className="text-sm mb-6" style={{ color: "#cc88ff" }}>
                 {playerWins >= 3
                   ? "You outsmarted the Brainrot AI!"
@@ -667,10 +707,6 @@ Reply with ONLY a single number from your cards.`;
               </div>
               <button
                 onClick={() => {
-                  if (playerWins < aiWins) {
-                    window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
-                  }
-
                   resetGame();
                 }}
                 className="w-full py-3 rounded-2xl font-black text-lg tracking-widest transition-all hover:scale-105"
