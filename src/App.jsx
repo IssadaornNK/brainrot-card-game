@@ -584,7 +584,7 @@ Reply with ONLY a single number from your cards.`;
                     onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-8px) scale(1.06)"; e.currentTarget.style.boxShadow = `0 10px 24px rgba(0,0,0,0.8), 0 0 22px ${special ? special.color : "rgba(255,0,255,0.55)"}`; }}
                     onMouseLeave={e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = special ? `0 0 12px ${special.color}66` : "0 2px 8px rgba(0,0,0,0.6)"; }}
                   >
-                    <img src={`/src/assets/${card}.png`} alt={`Card ${card}`} style={{ width: "100%", height: "100%", objectFit: "contain", display: "block", filter: isBlind ? "brightness(0.1)" : "none" }} />
+                    <img src={`/assets/${card}.png`} alt={`Card ${card}`} style={{ width: "100%", height: "100%", objectFit: "contain", display: "block", filter: isBlind ? "brightness(0.1)" : "none" }} />
                     {/* Number badge */}
                     {!isBlind && (
                       <div className="absolute bottom-1 left-1/2 -translate-x-1/2 font-black rounded px-2 py-0.5"
