@@ -505,7 +505,7 @@ Reply with ONLY a single number from your cards.`;
                 <div className="text-xs font-bold mb-2" style={{ color: "#4a2800", letterSpacing: "0.08em" }}>Your Card</div>
                 {lastBattle ? (
                   <div className="relative">
-                    <img src={`/src/assets/${lastBattle.playerCard}.png`} alt="" style={{ width: 80, height: 96, objectFit: "contain", filter: "drop-shadow(0 3px 8px rgba(0,0,0,0.8))" }} />
+                    <img src={`/assets/${lastBattle.playerCard}.png`} alt="" style={{ width: 80, height: 96, objectFit: "contain", filter: "drop-shadow(0 3px 8px rgba(0,0,0,0.8))" }} />
                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 font-black rounded px-2 py-0.5" style={{ background: "rgba(0,0,0,0.85)", border: "1px solid #d4aa55", color: "#f0cc66", fontSize: 11 }}>
                       {lastBattle.playerCard}
                     </div>
@@ -530,7 +530,7 @@ Reply with ONLY a single number from your cards.`;
                     <div className={`card-flip-inner w-full h-full ${aiCardFlipped ? "flipped" : ""}`}>
                       <div className="card-front w-full h-full rounded flex items-center justify-center text-3xl" style={{ background: "linear-gradient(135deg,#2a0055,#1a0035)", border: "1px solid #5500aa" }}>🂠</div>
                       <div className="card-back w-full h-full rounded overflow-hidden relative">
-                        <img src={`/src/assets/${lastBattle.aiCard}.png`} alt="" className="w-full h-full object-contain" style={{ filter: "drop-shadow(0 3px 8px rgba(0,0,0,0.8))" }} />
+                        <img src={`/assets/${lastBattle.aiCard}.png`} alt="" className="w-full h-full object-contain" style={{ filter: "drop-shadow(0 3px 8px rgba(0,0,0,0.8))" }} />
                         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 font-black rounded px-2 py-0.5" style={{ background: "rgba(0,0,0,0.85)", border: "1px solid #aa77ff", color: "#cc99ff", fontSize: 11 }}>
                           {lastBattle.aiCard}
                         </div>
